@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get User Current location</title>
+</head>
+<body>
+    <center>
+    <h1>GET USER LOCATION</h1>
+        <hr>
+    <h2>LATITUDE: <span id="late" style="color:aqua; font-size:50px;"></span></h2>
+    <h2>LONGITUDE: <span id="long" style="color:aqua; font-size:50px;"></span></h2>
+        <p>22.24726254355866, 70.79723681010435</p>
+    <button onclick="getuserLocation()">Click Me</button>
+</center>
+  
+  <script>
+
+        var a = document.getElementById('late').value;
+        var b = document.getElementById('long').value;
+        function getuserLocation(){
+            if(!navigator.geolocation)return
+            navigator.geolocation.getCurrentPosition((position)=>{
+                document.getElementById('late').innerHTML = position.coords.latitude;
+                document.getElementById('long').innerHTML = position.coords.longitude;
+                },(err)=>{
+                    console.log("Unable to get location" ,err);
+                })
+
+               
+               
+            }
+    </script>
+</body>
+</html>
